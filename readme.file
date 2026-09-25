@@ -39,4 +39,13 @@ depending on the viewport width, improving load times on mobile.
 ## References
 - MDN Web Docs — CSS: https://developer.mozilla.org/en-US/docs/Web/CSS
 - MDN — Responsive images: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
-- web.dev — Responsive design: https://web.dev/responsive-web-design-basics/
+- web.dev — Responsive design: https://web.dev/responsive-web-design-basics/ ## Screenshots
+
+### Mobile (375px)
+![Mobile view](screenshot-mobile.png)
+
+### Tablet (768px)
+![Tablet view](screenshot-tablet.png)
+
+### Desktop (1440px)
+![Desktop view](screenshot-desktop.png)
