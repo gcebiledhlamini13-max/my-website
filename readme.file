@@ -1,0 +1,42 @@
+# My Website — Part 2: Designing the Visuals
+
+## Project Overview
+A responsive website built with HTML and CSS, demonstrating:
+- External stylesheet with base styles and CSS reset
+- Typographic system using a scale and relative units (`rem`)
+- Layout with Flexbox (header) and CSS Grid (card grid)
+- Responsive design using media queries and breakpoints
+- Interactive states (hover, focus) for better UX
+
+## Breakpoints
+| Breakpoint | Target device |
+|------------|---------------|
+| < 480px    | Small mobile  |
+| 480–600px  | Mobile        |
+| 601–900px  | Tablet        |
+| 901px+     | Desktop       |
+
+## Responsive Images
+Images use `srcset` and `sizes` attributes to serve different resolutions
+depending on the viewport width, improving load times on mobile.
+
+## Changelog
+### [Version 2.0] — Part 2 submission
+- Added external `style.css` with CSS reset
+- Established colour scheme using CSS custom properties (variables)
+- Applied typography scale using `rem` units
+- Implemented Flexbox layout for header and CSS Grid for project cards
+- Added media queries for mobile, tablet, and desktop
+- Added responsive images using `srcset` and `sizes`
+- Added hover and focus states for interactive feedback
+- Improved accessibility (semantic HTML, focus outlines)
+
+### [Version 1.1] — Edits from Part 1 feedback
+- (Add each edit here with a short description of what changed and why)
+- Example: "Fixed heading hierarchy — changed h3 to h2 in About section"
+- Example: "Improved colour contrast on buttons to meet WCAG AA"
+
+## References
+- MDN Web Docs — CSS: https://developer.mozilla.org/en-US/docs/Web/CSS
+- MDN — Responsive images: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+- web.dev — Responsive design: https://web.dev/responsive-web-design-basics/

@@ -1,0 +1,248 @@
+/* =========================================================
+   PART 2 — DESIGNING THE VISUALS
+   Base styles, typography, layout, responsive design
+   ========================================================= */
+
+/* ---------- 1. CSS RESET (2.2) ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 2. BASE STYLE (2.2) ---------- */
+:root {
+  /* Colour scheme */
+  --colour-bg: #eef4ff;
+  --colour-surface: #ffffff;
+  --colour-primary: #1d4ed8;
+  --colour-text: #1f2937;
+  --colour-muted: #6b7280;
+  --colour-border: #b8c2cc;
+
+  /* Spacing scale (rem) */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* Typography scale */
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* 1rem = 16px by default */
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  color: var(--colour-text);
+  background-color: var(--colour-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--colour-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+  outline: 2px solid var(--colour-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. TYPOGRAPHY (2.3) ---------- */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--colour-primary);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 2.25rem; }   /* 36px */
+h2 { font-size: 1.75rem; margin-bottom: var(--space-sm); }
+h3 { font-size: 1.25rem; margin-bottom: var(--space-xs); }
+
+p { margin-bottom: var(--space-sm); }
+
+/* ---------- 4. LAYOUT — Container ---------- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+}
+
+.section {
+  padding-block: var(--space-lg);
+}
+
+.section-alt {
+  background-color: var(--colour-surface);
+}
+
+/* ---------- 5. HEADER / NAV (Flexbox) ---------- */
+.site-header {
+  background-color: var(--colour-surface);
+  border-bottom: 1px solid var(--colour-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--colour-primary);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+}
+
+.main-nav a {
+  padding: var(--space-xs);
+  font-weight: 600;
+}
+
+/* ---------- 6. HERO SECTION ---------- */
+.hero {
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+  color: #ffffff;
+  padding-block: var(--space-xl);
+  text-align: center;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.hero p {
+  font-size: 1.125rem;
+  max-width: 40ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-md);
+}
+
+.btn {
+  display: inline-block;
+  background-color: #ffffff;
+  color: var(--colour-primary);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 6px;
+  font-weight: 700;
+  border: 2px solid #ffffff;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: transparent;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ---------- 7. CARD GRID (CSS Grid) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.card {
+  background-color: var(--colour-surface);
+  border: 1px solid var(--colour-border);
+  border-radius: 8px;
+  padding: var(--space-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  border-radius: 6px;
+  margin-bottom: var(--space-sm);
+  width: 100%;
+}
+
+/* ---------- 8. FOOTER ---------- */
+.site-footer {
+  background-color: #1f2937;
+  color: #e5e7eb;
+  text-align: center;
+  padding-block: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* =========================================================
+   9. RESPONSIVE DESIGN — MEDIA QUERIES (3.1)
+   Mobile-first: base styles are for mobile.
+   We add enhancements for tablet and desktop.
+   ========================================================= */
+
+/* Tablet: 601px and up */
+@media (min-width: 601px) {
+  h1 { font-size: 2.75rem; }
+  .hero { padding-block: 6rem; }
+  .hero h1 { font-size: 3rem; }
+}
+
+/* Desktop: 901px and up */
+@media (min-width: 901px) {
+  .container { padding-inline: var(--space-md); }
+  .section { padding-block: 5rem; }
+  h1 { font-size: 3rem; }
+  .hero h1 { font-size: 3.5rem; }
+}
+
+/* Small mobile: below 480px — stack nav vertically */
+@media (max-width: 480px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-nav ul {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .hero h1 { font-size: 1.75rem; }
+}
